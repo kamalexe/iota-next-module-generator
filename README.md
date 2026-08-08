@@ -89,22 +89,151 @@ project/
 
 ## Installation
 
-Use the package directly with `npx`:
+The package can currently be installed directly from the IOTA GitHub repository.
+
+### Install from GitHub
+
+From your Next.js project:
+
+```bash
+npm install git+https://github.com/kamalexe/iota-next-module-generator.git
+```
+
+After installation, verify the package:
+
+```bash
+npm ls @iota/next-module-generator
+```
+
+You should see:
+
+```text
+@iota/next-module-generator@1.0.0
+```
+
+### Generate a module
+
+After installing the package:
+
+```bash
+npx next-module-generator activity
+```
+
+Generate a task module:
+
+```bash
+npx next-module-generator task
+```
+
+Generate a budget module:
+
+```bash
+npx next-module-generator budget
+```
+
+Generate a daily report module:
+
+```bash
+npx next-module-generator daily-report
+```
+
+Force regeneration:
+
+```bash
+npx next-module-generator activity --force
+```
+
+### Install a Specific Git Branch
+
+To install from the `main` branch:
+
+```bash
+npm install git+https://github.com/kamalexe/iota-next-module-generator.git#main
+```
+
+To install from another branch:
+
+```bash
+npm install git+https://github.com/kamalexe/iota-next-module-generator.git#develop
+```
+
+### Local Development
+
+Clone the repository:
+
+```bash
+git clone https://github.com/kamalexe/iota-next-module-generator.git
+```
+
+Navigate into the repository:
+
+```bash
+cd iota-next-module-generator
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Build the CLI:
+
+```bash
+npm run build
+```
+
+Test the compiled CLI:
+
+```bash
+node dist/cli.js activity
+```
+
+### Development with npm link
+
+From the generator repository:
+
+```bash
+npm run build
+npm link
+```
+
+Navigate to your Next.js project:
+
+```bash
+cd my-next-project
+```
+
+Run:
+
+```bash
+next-module-generator activity
+```
+
+### npm Installation
+
+Once the package is published to npm, it can be installed with:
+
+```bash
+npm install @iota/next-module-generator
+```
+
+Or used directly with:
 
 ```bash
 npx @iota/next-module-generator activity
 ```
 
-Or install globally:
+The npm package name is:
 
-```bash
-npm install -g @iota/next-module-generator
+```text
+@iota/next-module-generator
 ```
 
-Then use:
+The GitHub repository is:
 
-```bash
-iota-next-module activity
+```text
+https://github.com/kamalexe/iota-next-module-generator
 ```
 
 ## Usage
