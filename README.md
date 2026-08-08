@@ -75,6 +75,12 @@ The target project should use:
 * Zod
 * Next.js App Router
 
+The generator declares `mongoose` and `zod` as **peer dependencies**, so npm 7+ installs them automatically when you install this package. You can also install them explicitly:
+
+```bash
+npm install mongoose zod
+```
+
 The generator expects the target project to have a structure similar to:
 
 ```text

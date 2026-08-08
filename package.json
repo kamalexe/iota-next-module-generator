@@ -44,10 +44,21 @@
   },
   "devDependencies": {
     "@types/node": "^20.19.43",
+    "mongoose": "^8.9.5",
     "tsx": "^4.23.11",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "zod": "^3.24.1"
   },
-  "dependencies": {
-    "@iota/next-module-generator": "github:kamalexe/iota-next-module-generator"
+  "peerDependencies": {
+    "mongoose": "^7.0.0 || ^8.0.0",
+    "zod": "^3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "mongoose": {
+      "optional": false
+    },
+    "zod": {
+      "optional": false
+    }
   }
 }

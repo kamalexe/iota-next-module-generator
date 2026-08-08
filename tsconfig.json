@@ -1,8 +1,10 @@
 {
     "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"]
-    },
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ]
+        },
         "target": "ES2022",
         "module": "NodeNext",
         "moduleResolution": "NodeNext",

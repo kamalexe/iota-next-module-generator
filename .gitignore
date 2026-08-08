@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Generated modules (run `npm run generate:module -- <name>` to regenerate)
+src/models/*.model.ts
+src/modules/*
+app/api/*
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+
+# Editor
+.vscode/

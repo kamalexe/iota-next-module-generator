@@ -691,7 +691,7 @@ function ensureTsConfigAlias() {
 
     // Already configured
     if (
-        /"@\/*"\s*:\s*\[\s*"\.\/src\/\*"\s*\]/.test(
+        /"@\/\*"\s*:\s*\[\s*"\.\/src\/\*"\s*\]/.test(
             content
         )
     ) {
@@ -704,6 +704,17 @@ function ensureTsConfigAlias() {
 
     // If paths already exists
     if (/"paths"\s*:\s*\{/.test(content)) {
+        // Don't duplicate an existing @/* entry inside paths
+        if (
+            /"@\/\*"/.test(content)
+        ) {
+            console.log(
+                '✓ TypeScript alias "@/*" already configured'
+            );
+
+            return;
+        }
+
         content = content.replace(
             /("paths"\s*:\s*\{)/,
             `$1\n      "@/*": ["./src/*"],`
@@ -861,7 +872,7 @@ import type {
     Create${ModuleName}Input,
     Update${ModuleName}Input,
     ${ModuleName}Query,
-} from "./types";
+} from "./types.js";
 
 export async function create(
     data: Create${ModuleName}Input
@@ -940,13 +951,13 @@ export async function remove(
  */
 
 const serviceTemplate = `
-import * as repository from "./${collectionName}.repository";
+import * as repository from "./${collectionName}.repository.js";
 
 import type {
     Create${ModuleName}Input,
     Update${ModuleName}Input,
     ${ModuleName}Query,
-} from "./types";
+} from "./types.js";
 
 export async function create(
     data: Create${ModuleName}Input
@@ -1039,11 +1050,11 @@ export type ${ModuleName}Action =
  */
 
 const indexTemplate = `
-export * from "./${collectionName}.service";
-export * from "./${collectionName}.schema";
-export * from "./serializer";
-export * from "./types";
-export * from "./actions";
+export * from "./${collectionName}.service.js";
+export * from "./${collectionName}.schema.js";
+export * from "./serializer.js";
+export * from "./types.js";
+export * from "./actions.js";
 `;
 
 /**
@@ -1414,13 +1425,20 @@ async function main() {
         srcDirName
     );
 
-    const modelImport = importer(
+    /*
+     * Model imports get a ".js" suffix: files like
+     * activity.model.ts have a dotted name, and TypeScript's
+     * NodeNext resolution treats ".model" as a file extension
+     * and never finds the file. The ".js" suffix resolves to
+     * the .ts source in both NodeNext and bundler modes.
+     */
+    const modelImport = `${importer(
         path.join(
             modelsDir,
             `${moduleName}.model`
         ),
         modulePath
-    );
+    )}.js`;
 
     const moduleImport = importer(
         path.join(
