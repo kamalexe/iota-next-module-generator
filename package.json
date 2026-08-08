@@ -1,17 +1,45 @@
 {
   "name": "@iota/next-module-generator",
   "version": "1.0.0",
+  "description": "CLI generator for scalable Next.js modules with API routes, Mongoose models, repositories, services, schemas, serializers, types, and actions.",
   "type": "module",
   "bin": {
     "next-module-generator": "./dist/cli.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsc",
     "dev": "tsx src/cli.ts",
+    "start": "node dist/cli.js",
     "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "nextjs",
+    "next",
+    "typescript",
+    "generator",
+    "scaffold",
+    "cli",
+    "mongoose",
+    "zod",
+    "iota"
+  ],
+  "author": "IOTA",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamalexe/iota-next-module-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kamalexe/iota-next-module-generator/issues"
+  },
+  "homepage": "https://github.com/kamalexe/iota-next-module-generator",
+  "engines": {
+    "node": ">=20"
   },
   "devDependencies": {
     "@types/node": "^20.19.43",

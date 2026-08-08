@@ -1,14 +1,13 @@
 {
     "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"],
-      "@/*": ["./src/*"]
-    },
         "target": "ES2022",
         "module": "NodeNext",
         "moduleResolution": "NodeNext",
         "rootDir": "src",
         "outDir": "dist",
+        "types": [
+            "node"
+        ],
         "strict": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
