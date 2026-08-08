@@ -1,5 +1,5 @@
 {
-  "name": "next-module-generator",
+  "name": "@iota/next-module-generator",
   "version": "1.0.0",
   "type": "module",
   "bin": {
