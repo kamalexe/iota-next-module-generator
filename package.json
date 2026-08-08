@@ -1,0 +1,21 @@
+{
+  "name": "next-module-generator",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "next-module-generator": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "tsx": "^4.23.11",
+    "typescript": "^5.9.3"
+  }
+}
